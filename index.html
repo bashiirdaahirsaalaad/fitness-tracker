@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link href="./dist/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-blue-600 p-6 text-white text-center">
+        <h1 class="text-3xl font-bold">Fitness Tracker</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-6">
+        <!-- Summary Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            <!-- Calories Burned -->
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">Calories Burned</h2>
+                <p id="calories" class="text-4xl font-bold text-blue-600">450</p>
+                <p class="text-sm text-gray-500">Today</p>
+            </div>
+
+            <!-- Steps Taken -->
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">Steps Taken</h2>
+                <p class="text-4xl font-bold text-green-600">10,000</p>
+                <p class="text-sm text-gray-500">Today</p>
+            </div>
+
+            <!-- Workout Time -->
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">Workout Time</h2>
+                <p class="text-4xl font-bold text-red-600">1h 30m</p>
+                <p class="text-sm text-gray-500">Today</p>
+            </div>
+
+            <!-- Water Intake -->
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">Water Intake</h2>
+                <p class="text-4xl font-bold text-teal-600">2.5L</p>
+                <p class="text-sm text-gray-500">Today</p>
+            </div>
+        </section>
+
+        <!-- Activity Log -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Activity Log</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 bg-gray-200 text-gray-600 font-semibold text-sm uppercase tracking-wider text-left">Date</th>
+                            <th class="py-2 px-4 bg-gray-200 text-gray-600 font-semibold text-sm uppercase tracking-wider text-left">Activity</th>
+                            <th class="py-2 px-4 bg-gray-200 text-gray-600 font-semibold text-sm uppercase tracking-wider text-left">Duration</th>
+                            <th class="py-2 px-4 bg-gray-200 text-gray-600 font-semibold text-sm uppercase tracking-wider text-left">Calories Burned</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b">2024-08-19</td>
+                            <td class="py-2 px-4 border-b">Running</td>
+                            <td class="py-2 px-4 border-b">30 mins</td>
+                            <td class="py-2 px-4 border-b">300</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">2024-08-19</td>
+                            <td class="py-2 px-4 border-b">Cycling</td>
+                            <td class="py-2 px-4 border-b">1 hour</td>
+                            <td class="py-2 px-4 border-b">450</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b">2024-08-18</td>
+                            <td class="py-2 px-4 border-b">Swimming</td>
+                            <td class="py-2 px-4 border-b">45 mins</td>
+                            <td class="py-2 px-4 border-b">400</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Progress Chart Placeholder -->
+        <section class="bg-white p-6 mt-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-4">Weekly Progress</h2>
+            <div class="w-full h-64 bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-500">[Progress Chart Placeholder]</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 p-4 text-center text-white">
+        <p>&copy; 2024 Fitness Tracker</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const updateCalories = () => {
+            document.getElementById('calories').innerText = '500';
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            updateCalories();
+        });
+
+        const addActivity = (date, activity, duration, calories) => {
+            const tableBody = document.querySelector('tbody');
+            const newRow = document.createElement('tr');
+
+            newRow.innerHTML = `
+                <td class="py-2 px-4 border-b">${date}</td>
+                <td class="py-2 px-4 border-b">${activity}</td>
+                <td class="py-2 px-4 border-b">${duration}</td>
+                <td class="py-2 px-4 border-b">${calories}</td>
+            `;
+
+            tableBody.appendChild(newRow);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            addActivity('2024-08-20', 'Yoga', '60 mins', '200');
+        });
+    </script>
+</body>
+</html>
